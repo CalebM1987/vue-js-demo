@@ -27,7 +27,7 @@
 
     computed: {
       greeting(){
-        return `${this.prefix} ${this.name}`;
+        return `${this.prefix}, ${this.name}!`;
       }
       
     }

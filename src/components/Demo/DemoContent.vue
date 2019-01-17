@@ -2,7 +2,7 @@
   
     <div class="demo-content-container">
       <!-- Tabbed View -->
-      <b-tabs v-if="_mode == 'tabs'">
+      <b-tabs v-if="_mode == 'tabs'" style="margin-bottom: 3rem;">
         <b-tab title="Preview" active>
           <div class="preview-container mt-4">
             <slot></slot>
@@ -16,7 +16,7 @@
       </b-tabs>
 
       <!-- Side by Side View -->
-      <div class="side-by-side" v-else>
+      <div class="side-by-side" style="margin-bottom: 3rem;" v-else>
         <h3>Preview:</h3>
         <div class="content">
           <slot></slot>

@@ -1,7 +1,7 @@
 <template>
   <div class="hello text-center mt-4">
     <h1 class="mt-2 mb-4">Welcome to the <a href="https://vuejs.org" target="_blank" rel="noopener">Vue.js</a> Demo App</h1>
-    <b-img src="../../assets/logo.png" class="mt-4 mb-4" />
+    <b-img src="../../assets/logo.png" class="mt-4 mb-3" />
     <h3>Essential Links</h3>
     <ul>
       <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>

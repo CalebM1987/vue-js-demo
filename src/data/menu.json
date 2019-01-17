@@ -12,9 +12,6 @@
         "label": "Getting Started",
         "route": "/getting-started"
       }, {
-        "label": "Vue vs jQuery",
-        "route": "/vue-vs-jquery"
-      }, {
         "label": "Components",
         "route": "/components",
         "children": [
@@ -25,7 +22,13 @@
         ]
       }, {
         "label": "Single File Components",
-        "route": "/single-file-components"
+        "route": "/single-file-components",
+        "children": [
+          {
+            "label": "Single Vile Example",
+            "route": "/single-file-example"
+          }
+        ]
       }, {
         "label": "Vue Router",
         "route": "/vue-router"

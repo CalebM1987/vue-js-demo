@@ -74,9 +74,7 @@ export const singleFileCode = `<!-- template (Greeting.vue) -->
       greeting(){
         return \`\${this.prefix} $\{this.name}\`;
       }
-      
     }
-    
   }
 </script>
 
@@ -93,6 +91,12 @@ export const singleFileCode = `<!-- template (Greeting.vue) -->
 export const singleFileTemplate = `<!-- main.js -->
 <template>
   <div id="app">
+
+    <!-- checkbox to filter data -->
+    <b-form-group label="Show Cards for:">
+      <b-form-checkbox-group v-model="selected" :options="options" class="ml-3"/>
+    </b-form-group>
+
     <!-- 'b-card-group' and 'b-card' are Bootstrap-Vue components -->
     <b-card-group>
       
@@ -120,9 +124,20 @@ const app = new Vue({
    Greeting
   },
 
+  mounted(){
+    this.selected = this.names.slice();
+  },
+
   data(){
     return {
-      names: ['John', 'Paul', 'Kelly', 'Nate', 'Brittany']
+      names: ['John', 'Paul', 'Kelly', 'Nate', 'Brittany', 'David'],
+      selected: [], // this will be used to store the filter from checkbox
+    }
+  },
+
+  computed: {
+    options(){
+      return this.names.map(n => { return { value: n, text: n }});
     }
   }
 
