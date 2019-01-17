@@ -6,6 +6,7 @@ import CounterExample from '../components/Demo/Examples/CounterExample';
 import VueRouterExample from '../components/Demo/Examples/VueRouterExample';
 import TheVueInstance from '../components/Demo/TheVueInstance';
 import HelloWorld from '../components/Demo/HelloWorld';
+import SingleFileExample from '../components/Demo/Examples/SingleFileExample';
 
 Vue.use(VueRouter);
 
@@ -16,7 +17,7 @@ const routes = [
   // { path: '/vue-vs-jquery', name: 'Vue vs jQuery', component: VueVsJQuery },
   { path: '/components', name: 'Components', component: Components },
   { path: '/counter-example', name: 'Counter Example', component: CounterExample },
-  // { path: '/single-file-components', name: 'Single File Components', component: VueFile },
+  { path: '/single-file-components', name: 'Single File Components', component: SingleFileExample },
   { path: '/vue-router', name: 'Vue Router', component: VueRouterExample },
 ]
 

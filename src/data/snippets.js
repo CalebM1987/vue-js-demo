@@ -41,3 +41,90 @@ Vue.component('button-counter', {
 
 // now initialize vue instance 
 const app =  new Vue({ el: '#components-demo' })`
+
+export const singleFileCode = `<!-- template (Greeting.vue) -->
+<template>
+  <!-- injected into parent component -->
+  <div>
+    <p>HTML Structure</p>
+    <div class="someClass">{{ greet }}</div>
+  </div>
+  <!-- injected into parent component -->
+</template>
+
+<script>
+  // component definition
+  export default{
+    name: 'greeting',
+
+    props: {
+      name: {
+        type: String,
+        default: 'World'
+      }
+    },
+
+    data(){
+      return {
+        prefix: 'Hello'
+      }
+    },
+
+    computed: {
+      greeting(){
+        return \`\${this.prefix} $\{this.name}\`;
+      }
+      
+    }
+    
+  }
+</script>
+
+<style>
+/* nested component style definition */ 
+  .someClass{
+    color: red;
+    background-color: black;
+    height: 500px;
+    width: 500px;
+  }
+</style>`
+
+export const singleFileTemplate = `<!-- main.js -->
+<template>
+  <div id="app">
+    <!-- 'b-card-group' and 'b-card' are Bootstrap-Vue components -->
+    <b-card-group>
+      
+      <!-- use the 'v-for' directive to repeat elements based on data array -->
+      <b-card v-for="name in names" :key="name">
+        <greeting :name="name"></greeting>
+      </b-card>
+
+    </b-card-group>
+    
+  </div>
+</template>
+
+<script>
+import Greeting from './components/Greeting';
+
+const app = new Vue({
+  el: '#app',
+
+  // render function
+  render: h => h(App),
+
+  // register Greeting here
+  components: {
+   Greeting
+  },
+
+  data(){
+    return {
+      names: ['John', 'Paul', 'Kelly', 'Nate', 'Brittany']
+    }
+  }
+
+}).mount('#app');
+`
