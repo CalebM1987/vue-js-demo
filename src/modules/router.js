@@ -2,15 +2,22 @@ import VueRouter from 'vue-router';
 import Vue from 'vue';
 import GettingStarted from '../components/Demo/Examples/GettingStarted';
 import Components from '../components/Demo/Examples/Components';
+import CounterExample from '../components/Demo/Examples/CounterExample';
+import VueRouterExample from '../components/Demo/Examples/VueRouterExample';
+import TheVueInstance from '../components/Demo/TheVueInstance';
+import HelloWorld from '../components/Demo/HelloWorld';
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', name: 'Getting Started', component: GettingStarted },
+  { path: '/home', name: 'Home', component: HelloWorld },
+  { path: '/the-vue-instance', name: 'The Vue Instance', component: TheVueInstance },
+  { path: '/getting-started', name: 'Getting Started', component: GettingStarted },
   // { path: '/vue-vs-jquery', name: 'Vue vs jQuery', component: VueVsJQuery },
   { path: '/components', name: 'Components', component: Components },
-  // { path: '/vue-file', name: 'The .vue file', component: VueFile },
-  // { path: '/vue-router', name: 'Vue Router', component: VueRouterExample },
+  { path: '/counter-example', name: 'Counter Example', component: CounterExample },
+  // { path: '/single-file-components', name: 'Single File Components', component: VueFile },
+  { path: '/vue-router', name: 'Vue Router', component: VueRouterExample },
 ]
 
 export default new VueRouter({

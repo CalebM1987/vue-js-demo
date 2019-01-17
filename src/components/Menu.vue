@@ -10,6 +10,16 @@
             <slot :name="`${section}-${child}`">
               <b-link :to="child.route" :href="child.route" :name="child.label">{{ child.label }}</b-link>
             </slot>
+
+            <!-- recursive nesting? -->
+            <b-list-group v-if="(child.children || []).length">
+              <b-list-group-item v-for="nc in child.children" class="menu-item" :key="nc.label">
+                <slot :name="`${section}-${child}-${nc}`">
+                  <b-link :to="nc.route" :href="nc.route" :name="nc.label">{{ nc.label }}</b-link>
+                </slot>
+              </b-list-group-item>
+
+            </b-list-group>
           </b-list-group-item>
 
         </b-list-group>

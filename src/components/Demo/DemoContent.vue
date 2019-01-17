@@ -1,106 +1,125 @@
 <template>
   
-    <b-tabs>
-      <b-tab title="Preview" active>
-        <div class="preview-container mt-4">
+    <div class="demo-content-container">
+      <!-- Tabbed View -->
+      <b-tabs v-if="_mode == 'tabs'">
+        <b-tab title="Preview" active>
+          <div class="preview-container mt-4">
+            <slot></slot>
+          </div>
+        </b-tab>
+
+        <b-tab title="Code">
+          <code-container :lang="lang" :code="code" :templateCode="templateCode"/>
+        </b-tab>
+
+      </b-tabs>
+
+      <!-- Side by Side View -->
+      <div class="side-by-side" v-else>
+        <h3>Preview:</h3>
+        <div class="content">
           <slot></slot>
         </div>
-      </b-tab>
 
-      <b-tab title="Code">
+        <hr class="mt-4 mb-4">
 
-        <div class="code-container mt-4" v-if="markedTemplate.value">
-          <p class="mb-2">template:</p>
-          <pre><code :class="['hljs', lang]" v-html="markedTemplate.value">
-            {{ markedTemplate.value }}
-          </code></pre> 
-        </div>
-        
-        <div class="code-container mt-4">
-          <p class="mb-2">{{ lang == 'html' ? lang + '/Vue': lang}}:</p>
-          <pre><code :class="['hljs', lang]" v-html="marked.value">
-            {{ marked.value }}
-          </code></pre> 
-        </div>
-        
-     </b-tab>
+        <h3>Code:</h3>
+        <code-container :lang="lang" :code="code" :templateCode="templateCode"/>
 
-    </b-tabs>
+      </div>
+
+      <div class="view-footer">
+        <span title="switch view" class="fa-btn" @click="changeView">
+          <font-awesome-icon :icon="icon" :rotation="rotation"/>
+        </span>
+      </div>
+    </div>
 
 </template>
 
 <script>
-import 'highlight.js/styles/dracula.css';
-import highlight from 'highlight.js';
+import CodeMixin from './CodeMixin.js';
+import CodeContainer from './CodeContainer';
 
 export default {
   name: 'demo-content',
 
+  mixins: [CodeMixin],
+
+  components: {
+    CodeContainer
+  },
+
   props: {
-    lang: {
-      type: String,
-      default: 'html'
-    },
 
-    code: {
+    mode: {
       type: String,
-      default: ''
-    },
-
-    templateCode: {
-      type: String,
-      default: ''
+      default: 'tabs'
     }
+
   },
 
   data(){
     return {
-      markedTemplate: {},
-      marked: {}
+      _mode: null,
+      icon: ['far', 'list-alt'],
+      rotation: 0
     }
   },
 
-  mounted(){
-      console.log('lang is: ', this.lang)
-    this.marked = highlight.highlight(this.lang, this.code);
-    if (this.templateCode){
-      this.markedTemplate = highlight.highlight('html', this.templateCode);
+  methods: {
+    changeView(){
+      console.log('called change view: ', this._mode)
+      this._mode = this._mode === 'tabs' ? 'side': 'tabs';
+      console.log('after: ', this._mode);
+      this.setIcon();
+    },
+
+    setIcon(){
+      if (this._mode == 'tabs'){
+        this.icon = ['fas', 'columns'];
+        this.rotation = 270;
+      } else {
+        this.icon = ['far', 'list-alt'];
+        this.rotation = 0;
+      } 
+      console.log('updated icon: ', this.icon)
+      
     }
-    console.log('marked is: ', this.marked)
+  },
+
+  beforeMount(){
+    console.log('before mount mode', this.mode)
+    this._mode = this.mode;
+  },
+
+  mounted(){
+    console.log('mounted demo content', this._mode, this.icon)
+    this.setIcon();
+  },
+
+  watch: {
+    mode(newVal){
+      this._mode = newVal;
+    },
+
+    // _mode(newVal){
+    //   console.log('mode changed: ', newVal)
+    //   this.setIcon();
+    // }
   }
+
 }
 </script>
 
 <style>
 
-.code-container pre code {
-  max-height: 450px;
-  overflow-y: auto;
+.view-footer{
+  position: fixed;
+  right: 1.75rem;
+  bottom: 1rem;
 }
-/* @import url(../../../css/zenburn.css); */
-
-/* .code-container pre code {
-    display: block;
-    padding: 5px;
-    overflow: auto;
-    max-height: 490px;
-    word-wrap: normal;
-    font-size: 1.15rem;
-}
-
-.code-container code {
-    font-family: monospace;
-    text-transform: none;
-}
-
-
-
-pre, xmp, plaintext, listing {
-    display: block;
-    font-family: monospace;
-    white-space: pre;
-    margin: 1em 0px;
-} */
 
 
 </style>

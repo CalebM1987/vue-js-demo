@@ -17,7 +17,7 @@
           </template>
         </sidebar>
 
-        <b-col cols="8">
+        <b-col lg="9" md="8">
           <keep-alive :exclude="excludeAlive">
             <router-view class="view" />
           </keep-alive>
@@ -55,5 +55,10 @@ export default {
   /* text-align: center; */
   color: #2c3e50;
   /* margin-top: 60px; */
+}
+
+.fa-btn{
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 </style>
