@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Vue Demos",
+    "children": [
+      {
+        "label": "Getting Started",
+        "route": "/"
+      }, {
+        "label": "Vue vs jQuery",
+        "route": "/vue-vs-jquery"
+      }, {
+        "label": "Components",
+        "route": "/components"
+      }, {
+        "label": "The .vue file",
+        "route": "/vue-file"
+      }, {
+        "label": "Vue Router",
+        "route": "/vue-router"
+      }
+    ]
+  }
+]
