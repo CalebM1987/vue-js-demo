@@ -47,7 +47,7 @@ export const singleFileCode = `<!-- template (Greeting.vue) -->
   <!-- injected into parent component -->
   <div>
     <p>HTML Structure</p>
-    <div class="someClass">{{ greet }}</div>
+    <div class="someClass text-center font-weight-bold">{{ greeting }}</div>
   </div>
   <!-- injected into parent component -->
 </template>
@@ -72,9 +72,10 @@ export const singleFileCode = `<!-- template (Greeting.vue) -->
 
     computed: {
       greeting(){
-        return \`\${this.prefix} $\{this.name}\`;
+        return \`\${this.prefix}, \${this.name}!\`;
       }
     }
+    
   }
 </script>
 
@@ -82,9 +83,8 @@ export const singleFileCode = `<!-- template (Greeting.vue) -->
 /* nested component style definition */ 
   .someClass{
     color: red;
-    background-color: black;
-    height: 500px;
-    width: 500px;
+    background-color: lightblue;
+    padding: 1rem;
   }
 </style>`
 
