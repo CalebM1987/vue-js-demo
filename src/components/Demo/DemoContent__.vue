@@ -10,10 +10,7 @@
         </b-tab>
 
         <b-tab title="Code">
-          <slot name="code">
-            <code-container :lang="'html'" label="template" :code="templateCode" v-if="templateCode"/>
-            <code-container :lang="lang" :code="code"  :label="codeLabel"/>
-          </slot>
+          <code-container :lang="lang" :code="code" :templateCode="templateCode"/>
         </b-tab>
 
       </b-tabs>
@@ -28,10 +25,7 @@
         <hr class="mt-4 mb-4">
 
         <h3>Code:</h3>
-          <slot name="code">
-            <code-container :lang="'html'" label="template" :code="templateCode" v-if="templateCode"/>
-            <code-container :lang="lang" :code="code" :label="codeLabel"/>
-          </slot>
+        <code-container :lang="lang" :code="code" :templateCode="templateCode"/>
 
       </div>
 

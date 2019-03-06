@@ -34,5 +34,16 @@
         "route": "/vue-router"
       }
     ]
+  }, {
+    "name": "Mapping Demos",
+    "children": [
+      {
+        "label": "ArcGIS esri-loader",
+        "route": "ags-esri-loader"
+      }, {
+        "label": "BMI Esri Loader",
+        "route": "ags-bmi-esri-loader"
+      }
+    ]
   }
 ]

@@ -15,6 +15,11 @@ export default {
       default: ''
     },
 
+    codeLabel: {
+      type: String,
+      default: "javascript"
+    }
+
   },
 
   data(){
