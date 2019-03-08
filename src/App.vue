@@ -43,6 +43,10 @@ export default {
     return {
       excludeAlive: []
     }
+  },
+
+  mounted(){
+    hook.app = this;
   }
 }
 </script>

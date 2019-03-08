@@ -37,7 +37,7 @@
 
       <div class="view-footer">
         <span title="switch view" class="fa-btn" @click="changeView">
-          <font-awesome-icon :icon="icon" :rotation="rotation"/>
+          <font-awesome-icon :icon="icon" :rotation="rotation || 0"/>
         </span>
       </div>
     </div>

@@ -35,11 +35,14 @@
       }
     ]
   }, {
-    "name": "Mapping Demos",
+    "name": "Mapping",
     "children": [
       {
+        "label": "Mapping Demos",
+        "route": "mapping-examples"
+      }, {
         "label": "ArcGIS esri-loader",
-        "route": "ags-esri-loader"
+        "route": "arcgis-esri-loader"
       }
     ]
   }

@@ -9,6 +9,7 @@ import HelloWorld from '../components/Demo/HelloWorld';
 import SingleFileDescription from '../components/Demo/Examples/SingleFileDescription';
 import SingleFileExample from '../components/Demo/Examples/SingleFileExample';
 import MappingExample from '../components/Demo/Examples/MappingExample';
+import ArcGISEsriLoader from '../components/Demo/Examples/ArcGISEsriLoader';
 
 Vue.use(VueRouter);
 
@@ -22,9 +23,11 @@ const routes = [
   { path: '/single-file-components', name: 'Single File Components', component: SingleFileDescription },
   { path: '/single-file-example', name: 'Single File Example', component: SingleFileExample },
   { path: '/vue-router', name: 'Vue Router', component: VueRouterExample },
-  { path: 'mapping-examples', name: 'Mapping Examples', component: MappingExample }
+  { path: '/mapping-examples', name: 'Mapping Examples', component: MappingExample },
+  { path: '/arcgis-esri-loader', name: 'ArcGIS esri-loader', component: ArcGISEsriLoader },
 ]
 
 export default new VueRouter({
-  routes: routes
+  routes: routes,
+  mode: 'history'
 });
