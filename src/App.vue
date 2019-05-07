@@ -8,7 +8,7 @@
     </b-navbar>
 
     <b-container fluid style="margin-top: 1.5rem;">
-      <b-row>
+      <b-row class="flex-xl-nowrap2">
 
         <!-- SIDEBAR-->
         <sidebar>
@@ -18,9 +18,12 @@
         </sidebar>
 
         <b-col lg="9" md="8">
-          <keep-alive :exclude="excludeAlive">
-            <router-view class="view" />
-          </keep-alive>
+          <div class="scrollable bd-content">
+            <keep-alive :exclude="excludeAlive">
+              <router-view class="view" />
+            </keep-alive>
+          </div>
+          
         </b-col>
       </b-row>
 
@@ -29,31 +32,40 @@
 </template>
 
 <script>
-import Sidebar from './components/Sidebar';
-import SidebarMenu from './components/Menu';
+import Sidebar from "./components/Sidebar";
+import SidebarMenu from "./components/Menu";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Sidebar,
     SidebarMenu
   },
 
-  data(){
+  data() {
     return {
       excludeAlive: []
-    }
+    };
   },
 
-  mounted(){
+  mounted() {
     hook.app = this;
   }
-}
+};
 </script>
 
 <style>
+.bd-content {
+  order: 1;
+}
+
+/* .scrollable {
+  height: calc(100vh-60px);
+  overflow-y: auto;
+} */
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
@@ -61,7 +73,7 @@ export default {
   /* margin-top: 60px; */
 }
 
-.fa-btn{
+.fa-btn {
   font-size: 1.5rem;
   cursor: pointer;
 }
