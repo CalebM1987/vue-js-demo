@@ -1,115 +1,55 @@
 <template>
   <div class="intro">
-    <div class="header-container d-flex justify-content-between">
+    <div class="header-container mt-4">
       <span></span>
-      <h3>What is Vue.js?</h3>
-      <b-input-group class="vue-stargazers">
-        <b-input-group-prepend>
-          <b-button class="stars" @click="viewStargazers" title="view stargazers in github repo">
-            <font-awesome-icon :icon="['fas', 'star']"></font-awesome-icon>
-            <span class="ml-2">Stars</span>
-          </b-button>
-        </b-input-group-prepend>
-        <b-form-input class="stars-text font-weight-bold align-middle h-100" v-model="stargazers" readonly :title="`Vue.js currently has ${stargazers} stars`"></b-form-input>
-      </b-input-group>
+      <h2>What is Vue.js?</h2>
       
     </div>
+
+    <b-container class="mt-4">
+      <b-row v-for="i in Math.ceil(stargazers.length / starGroups)" :key="i" class="align-items-end">
+        <b-col v-for="sg in stargazers.slice((i-1) * starGroups, i*starGroups)" :key="sg.repo">
+          <stargazers :repo="sg.repo" :owner="sg.owner"></stargazers>
+        </b-col>
+        
+      </b-row>
+    </b-container>
+    
     
 
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import Stargazers from '../Stargazers';
 
 export default {
   name: "vue-intro",
 
-  async created() {
-    console.log("called created");
-    this.fetchStargazers();
-    this.startStargazers();
-    hook.i = this;
+  components: {
+    Stargazers
   },
 
-  beforeDestroy() {
-    this.stopStargazers();
+  props: {
+    
   },
 
   data() {
     return {
-      vue_stargazers: 0,
-      _stargazers_service: null,
-      _stargazers_refresh_interval: 60000
+      starGroups: 2
     };
   },
 
-  filters: {
-    bigNumber(n) {
-      return Number(n).toLocaleString();
-    }
-  },
-
-  methods: {
-    viewStargazers() {
-      window.open("https://github.com/vuejs/vue/stargazers", "_blank");
-    },
-
-    startStargazers() {
-      if (!this._stargazers_service) {
-        this._stargazers_service = setInterval(
-          this.fetchStargazers,
-          this._stargazers_refresh_interval || 120000
-        );
-      }
-    },
-
-    stopStargazers() {
-      clearInterval(this._stargazers_service);
-      this._stargazers_service = null;
-    },
-
-    async fetchStargazers() {
-      console.log("fetching stargazers...");
-      const resp = await axios({
-        url: "https://api.github.com/graphql",
-        method: "post",
-        data: {
-          query:
-            "query { repository(owner: vuejs, name: vue){ stargazers { totalCount } } }"
-        },
-        headers: {
-          Authorization: `bearer ${this.$root.config.github_graphql_token}`
-        }
-      });
-      this.vue_stargazers = resp.data.data.repository.stargazers.totalCount;
-      // this.vue_stargazers = 137568;
-    }
-  },
-
   computed: {
-    stargazers() {
-      return this.vue_stargazers
-        ? Number(this.vue_stargazers).toLocaleString()
-        : "";
+    stargazers(){
+      return this.$root.config.stargazers;
     }
   }
+
+ 
 };
 </script>
 
 <style>
-.vue-stargazers {
-  max-width: 210px;
-}
-.stars,
-.stars:hover {
-  background-color: #eff3f6 !important;
-  background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
-  color: #24292e;
-  /* color: black; */
-}
 
-.stars-text {
-  background-color: white !important;
-}
 </style>
