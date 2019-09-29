@@ -7,27 +7,35 @@
       </b-navbar-nav>
     </b-navbar>
 
-    <b-container fluid style="margin-top: 1.5rem;">
-      <b-row class="flex-xl-nowrap2">
-
-        <!-- SIDEBAR-->
-        <sidebar>
+    <!-- SIDEBAR-->
+    <b-container fluid style="margin-top: 1.25rem;">
+      <b-row>
+        <sidebar ref="sidebar">
           <template slot="sidebar-body">
             <sidebar-menu></sidebar-menu>
           </template>
         </sidebar>
 
-        <b-col lg="9" md="8">
-          <div class="scrollable bd-content">
-            <keep-alive :exclude="excludeAlive">
-              <router-view class="view" />
-            </keep-alive>
-          </div>
-          
-        </b-col>
-      </b-row>
+        <b-col md="9" style="order: 1;">
+          <b-container fluid class="main-container">
+            <b-row class="flex-xl-nowrap2">
 
+              <b-col>
+                <div class="scrollable bd-content">
+                  <keep-alive :exclude="excludeAlive">
+                    <router-view class="view" />
+                  </keep-alive>
+                </div>
+                
+              </b-col>
+            </b-row>
+
+          </b-container>
+        </b-col>
+
+      </b-row>
     </b-container>
+    
   </div>
 </template>
 
@@ -64,6 +72,10 @@ export default {
   overflow-y: auto;
 } */
 
+body{
+  overflow-y: hidden !important;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -76,5 +88,14 @@ export default {
 .fa-btn {
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.main-container {
+  margin-top: 1.5rem;
+  height: calc(100vh - 84px);
+  overflow-y: auto;
+  /* position: absolute;
+  top: 72px;
+  left: auto; */
 }
 </style>

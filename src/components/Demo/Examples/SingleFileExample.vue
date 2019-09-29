@@ -1,7 +1,7 @@
 <template>
   <div id="single-file-example">
     
-    <demo-content :code="code" :templateCode="tempCode" :lang="'html'" :codeLabel="'Greeting.vue file'">
+    <demo-content :code="code" :templateCode="tempCode" :lang="'html'" :codeLabel="'Greeting.vue file'" :templateLabel="'main.js file'">
 
       <!-- checkbox to filter data -->
       <b-form-group label="Show Cards for:">

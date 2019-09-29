@@ -11,7 +11,7 @@
 
         <b-tab title="Code">
           <slot name="code">
-            <code-container :lang="'html'" label="template" :code="templateCode" v-if="templateCode"/>
+            <code-container :lang="'html'" :label="templateLabel" :code="templateCode" v-if="templateCode"/>
             <code-container :lang="lang" :code="code"  :label="codeLabel"/>
           </slot>
         </b-tab>
@@ -29,7 +29,7 @@
 
         <h3>Code:</h3>
           <slot name="code">
-            <code-container :lang="'html'" label="template" :code="templateCode" v-if="templateCode"/>
+            <code-container :lang="'html'" :label="templateLabel" :code="templateCode" v-if="templateCode"/>
             <code-container :lang="lang" :code="code" :label="codeLabel"/>
           </slot>
 

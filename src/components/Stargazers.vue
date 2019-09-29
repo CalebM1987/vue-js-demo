@@ -8,7 +8,7 @@
         <b-input-group-prepend>
           <b-button class="stars" @click="viewStargazers" title="view stargazers in github repo">
             <font-awesome-icon :icon="['fas', 'star']"></font-awesome-icon>
-            <span class="ml-2">Stars</span>
+            <span class="ml-2"><strong>Stars</strong></span>
           </b-button>
         </b-input-group-prepend>
         <!-- <big-number-input :value="stargazers" :cls="'stars-text font-weight-bold align-middle h-100'"></big-number-input> -->
@@ -45,13 +45,20 @@ export default {
     refreshInterval: {
       type: Number,
       default: 360000 // every 2 min
+    },
+
+    refresh: {
+      type: Boolean,
+      default: true
     }
   },
 
   async created() {
     console.log("called created");
     this.fetchStargazers();
-    this.startStargazers();
+    if (this.refresh){
+      this.startStargazers();
+    }
     hook.i = this;
   },
 

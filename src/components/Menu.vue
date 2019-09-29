@@ -8,14 +8,25 @@
         <b-list-group>
           <b-list-group-item v-for="child in section.children" class="menu-item" :key="child.name">
             <slot :name="`${section}-${child}`">
-              <b-link :to="child.route" :href="child.route" :name="child.label">{{ child.label }}</b-link>
+              <b-link :to="child.route" 
+                  @click="activeLink=child.name" 
+                  :active="activeLink===child.name"
+                  :href="child.route" 
+                  :name="child.name">{{ child.name }}</b-link>
             </slot>
 
             <!-- recursive nesting? -->
             <b-list-group v-if="(child.children || []).length">
-              <b-list-group-item v-for="nc in child.children" class="menu-item" :key="nc.label">
+              <b-list-group-item v-for="nc in child.children" class="menu-item" :key="nc.name">
                 <slot :name="`${section}-${child}-${nc}`">
-                  <b-link :to="nc.route" :href="nc.route" :name="nc.label">{{ nc.label }}</b-link>
+                  <b-link :to="nc.route" 
+                      :href="nc.route" 
+                      :name="nc.name" 
+                      class="menu-link"
+                      @click="activeLink=nc.name" 
+                      :active="activeLink===nc.name">
+                    {{ nc.name }}
+                    </b-link>
                 </slot>
               </b-list-group-item>
 
@@ -32,12 +43,13 @@
 
 <script>
 
-  import sections from '../data/menu.json';
+  import { menu } from '../data/menu';
   export default {
     name: "sidebar-menu",
     data() {
       return {
-        sections: sections
+        sections: menu,
+        activeLink: null
       }
     },
     methods: {}
@@ -64,6 +76,15 @@
 
   .menu-item > a {
     color: gray;
+  }
+
+  /* .router-link-active{
+    font-weight: bold;
+  } */
+
+  .router-link-exact-active {
+    font-weight: bold;
+    color: blue !important
   }
 
 </style>

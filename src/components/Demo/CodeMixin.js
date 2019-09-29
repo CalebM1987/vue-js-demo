@@ -15,6 +15,11 @@ export default {
       default: ''
     },
 
+    templateLabel: {
+      type: String,
+      default: 'template'
+    },
+
     codeLabel: {
       type: String,
       default: "javascript"
