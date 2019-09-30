@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="mt-5">
     <b-row>
-      <b-col md="12" xl="10">
+      <b-col md="12" xl="10" class="mx-auto">
         <info-group :title="'Hello World Example'" :info="helloWorld">
           <code-container :code="helloWorldExample" :label="'HelloWorld.html'"></code-container>
         </info-group>
@@ -10,7 +10,7 @@
     </b-row>
 
      <b-row class="mt-5">
-      <b-col md="12" xl="10">
+      <b-col md="12" xl="10" class="mx-auto">
         <info-group :title="'Modeling Data'" :info="modelingData">
           <code-container :code="modelExampleTemplate"></code-container>
           <code-container :code="modelExampleCode" :lang="'javascript'"></code-container>

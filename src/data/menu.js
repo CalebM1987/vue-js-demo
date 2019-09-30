@@ -53,6 +53,10 @@ export const menu = [
           }
         ]
       }, {
+        name: "The Vue Instance",
+        route: "/the-vue-instance",
+        component: ()=> import("../components/lecture/TheVueInstance")
+      }, {
         name: "Vue Router",
         route: "/vue-router",
         component: ()=> import('../components/lecture/VueRouterInfo'),
@@ -63,10 +67,6 @@ export const menu = [
             component: ()=> import("../components/Demo/VueRouterExample")
           }
         ]
-      }, {
-        name: "The Vue Instance",
-        route: "/the-vue-instance",
-        component: ()=> import("../components/lecture/TheVueInstance")
       }
     ]
   }, {

@@ -2,9 +2,13 @@
   <demo-content :lang="'javascript'" :code="code" :templateCode="tempCode">
    
     <div id="components-demo" class="mt-4">
-      <button-counter></button-counter>
-      <button-counter class="mt-4"></button-counter>
-      <button-counter class="mt-4"></button-counter>
+      <div class="flex">
+        <button @click="buttons++">Add Another Counter</button>
+        <button @click="buttons--" class="ml-3" :disabled="!buttons">Remove Last Counter</button>
+      </div>
+      <hr>
+      <!-- v-for range -->
+      <button-counter v-for="n in buttons" :key="n" class="mt-3"></button-counter>
     </div>
     
   </demo-content>
@@ -27,6 +31,7 @@ export default {
 
   data(){
     return {
+      buttons: 1,
       code: componentsCode,
       tempCode: componentsTemplate
     }
@@ -34,4 +39,10 @@ export default {
 
 }
 </script>
+
+<style>
+  button.disabled {
+    cursor: not-allowed !important;
+  }
+</style>
 

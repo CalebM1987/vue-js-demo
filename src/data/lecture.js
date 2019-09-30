@@ -29,3 +29,42 @@ export const modelingData = {
     `To set up the data binding, you must use the <code>v-model</code> <a href="https://012.vuejs.org/guide/directives.html" target="_blank">directive</a>:<br/><code>&lt;input type="text"&gt;`
   ]
 }
+
+export const vFor = {
+  text: [
+    `By modeling data to form inputs, we have already used <a href="https://012.vuejs.org/guide/directives.html" target="_blank">directives</a>, namely the <code>v-model</code> directive.  However, Vue has many builtin directives that can make your life easier.  One is the <code>v-for</code> directive.`,
+    `Any time an element needs to be repeated by an <code>array</code> within the data, the <code>v-for</code> directive can be used to render a list.  See the example below.`
+  ]
+
+}
+
+export const vIf = {
+  text: [
+    `Elements can also be conditionally rendered with the following directives:`,
+  ],
+  bullets: [
+    `<code>v-if</code> - block will only be rendered if the directive's expression returns a truthy value.`,
+    `<code>v-else-if</code> - creates an <code>else if</code> block that is displayed if the directive's expression returns a truthy value.`,
+    `<code>v-else</code> - block will only be rendered if none of the prior <code>v-if</code> or <code>v-else-if</code> expressions are truthy, good for setting default content.`,
+    `<code>v-show</code> - block will only show when condition is met, different from <code>v-if</code> in that a <code>v-show</code> element exists in the DOM, but its visibility is controlled by css.`
+  ]
+}
+
+export const vBind = {
+  text: [
+
+  ],
+  bullets: [
+
+  ]
+}
+
+export const propsAndEvents = {
+  text: [
+    `Data can easily be passed to and from components.  The rule of thumb with Vue, is pass data down to child components through <code>props</code>, and send data back up to the parent via <code>events</code>.`
+
+  ],
+  bullets: [
+
+  ]
+}

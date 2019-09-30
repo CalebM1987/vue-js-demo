@@ -23,6 +23,10 @@
 
     </div>
 
+    <div v-show="selectedTeam" class="mt-4 text-secondary">
+      <p>Your favorite NFC North team is the <strong>{{ selectedTeam }}</strong> <span v-if="selectedTeam === 'Bears'">, Great Choice!</span></p>
+    </div>
+
   </div>
 </template>
 

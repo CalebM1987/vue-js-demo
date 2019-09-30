@@ -1,6 +1,6 @@
 <template>
   <div class="info-group mb-4 mr-5">
-      <h3>{{ title }}</h3>
+      <h3 v-html="title"></h3>
       <hr>
 
       <b-card>

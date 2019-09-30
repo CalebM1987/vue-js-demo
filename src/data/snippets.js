@@ -98,10 +98,14 @@ export const gettingStartedCode = `const app = new Vue({
   }
 })`
 
-export const componentsTemplate = `<div id="components-demo">
-  <button-counter></button-counter>
-  <button-counter class="mt-4"></button-counter>
-  <button-counter class="mt-4"></button-counter>
+export const componentsTemplate = `<div id="components-demo" class="mt-4">
+  <div class="flex">
+    <button @click="buttons++">Add Another Counter</button>
+    <button @click="buttons--" class="ml-3" :disabled="!buttons">Remove Last Counter</button>
+  </div>
+  <hr>
+  <!-- v-for range -->
+  <button-counter v-for="n in buttons" :key="n" class="mt-3"></button-counter>
 </div>`
 
 
@@ -119,7 +123,14 @@ Vue.component('button-counter', {
 })
 
 // now initialize vue instance 
-const app =  new Vue({ el: '#components-demo' })`
+const app =  new Vue({
+  el: '#components-demo', d
+  data(){ 
+    return { 
+      buttons: 1 
+    }
+  } 
+})`
 
 export const singleFileCode = `<!-- template (Greeting.vue) -->
 <template>
@@ -309,6 +320,12 @@ export const renderingTemplate = `<template>
 
     </div>
 
+    <div v-show="selectedTeam" class="mt-4 text-secondary">
+      <p>Your favorite NFC North team is the <strong>{{ selectedTeam }}</strong> 
+        <span v-if="selectedTeam === 'Bears'">, Great Choice!</span>
+      </p>
+    </div>
+
   </div>
 </template>`
 
@@ -339,7 +356,7 @@ export const helloWorldExample = `<!DOCTYPE html>
     </div>
 
     <script
-      src="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.min.js">
+      src="//cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js">
     </script>
 
     <script>
@@ -372,4 +389,37 @@ export const modelExampleCode = `export default {
     }
   }
 }
+`
+
+export const listExample = `<html lang="en">
+  <meta>
+    <meta charset="UTF-8">
+    <title>Hello World in Vue.js</title>
+  </meta>
+
+  <body>
+	
+    <div id="app">
+      <ul>
+        <li v-for="fruit in fruits" :key="fruit">{{ fruit }}</li>
+      </ul>
+    </div>
+
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js">
+    </script>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            fruits: ['Apple', 'Banana', 'Orange', 'Strawberry']
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>
 `
