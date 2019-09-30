@@ -3,6 +3,8 @@
    
     <div id="components-demo" class="mt-4">
       <button-counter></button-counter>
+      <button-counter class="mt-4"></button-counter>
+      <button-counter class="mt-4"></button-counter>
     </div>
     
   </demo-content>

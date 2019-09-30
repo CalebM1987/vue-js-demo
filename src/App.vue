@@ -98,4 +98,13 @@ body{
   top: 72px;
   left: auto; */
 }
+
+.code-text {
+  font-family: monaco, Consolas, "Lucida Console", monospace !important;
+  display: inline-block !important;
+  color: orange;
+  font-size: 90% !important;
+  background-color: #e8e8e87e;
+  box-shadow: -3px 0 0 #e8e8e87e, 3px 0 0 ##e8e8e87e;
+}
 </style>

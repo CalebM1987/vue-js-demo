@@ -4,9 +4,9 @@
       <!-- Tabbed View -->
       <b-tabs v-if="_mode == 'tabs'" style="margin-bottom: 3rem;">
         <b-tab title="Preview" active>
-          <div class="preview-container mt-4">
+          <b-container fluid class="preview-container mt-4">
             <slot></slot>
-          </div>
+          </b-container>
         </b-tab>
 
         <b-tab title="Code">

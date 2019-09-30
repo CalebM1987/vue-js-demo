@@ -16,13 +16,20 @@ export const menu = [
             "name": "Modeling Data",
             "route": "/modeling-data",
             "component": ()=> import("../components/Demo/Examples/ModelingData")
-          }, 
+          }
+        ]
+      }, { 
+        name: "Directives",
+        route: "/directives",
+        component: ()=> import('../components/Demo/Directives'),
+        children: [
           {
-            "name": "Directives",
-            "route": "/directives",
+            "name": "Directives Example",
+            "route": "/directives-example",
             "component": ()=> import("../components/Demo/Examples/RenderingWithDirectives")
           }
         ]
+
       }, {
         "name": "Components",
         "route": "/components",

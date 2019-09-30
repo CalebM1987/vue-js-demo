@@ -4,19 +4,7 @@
     <b-row>
       <b-col md="10" class="mx-auto">
 
-        <div class="header-container mt-4">
-          <span></span>
-          <h2>What is Vue.js?</h2>
-          
-        </div>
-        <b-card>
-          <div class="text-left">
-            <p v-for="(p,i) in intro.text" :key="i" style="font-size: 1.15rem;">{{ p }}</p>
-            <ul>
-              <li v-for="(bullet,i) in intro.bullets" :key="i">{{ bullet }}</li>
-            </ul>
-          </div>
-        </b-card>
+        <info-group :title="'What is Vue.js?'" :info="intro"></info-group>
 
         <h3 class="mt-5">Github Stargazers for Major JS Frameworks</h3>
         <hr>
@@ -35,14 +23,16 @@
 
 <script>
 import Stargazers from '../Stargazers';
-import { intro } from '../../data/lecture.json';
+import { intro } from '../../data/lecture';
+import InfoGroup from '../InfoGroup';
 console.log('intro: ', intro)
 
 export default {
   name: "vue-intro",
 
   components: {
-    Stargazers
+    Stargazers,
+    InfoGroup
   },
 
   props: {
