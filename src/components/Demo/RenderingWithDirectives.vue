@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import DemoContent from '../DemoContent';
+import DemoContent from '../helpers/DemoContent';
 import FootballTeams from './FootballTeams';
-import { renderingTemplate, renderingCode } from '../../../data/snippets';
+import { renderingTemplate, renderingCode } from '../../data/snippets';
 
 export default {
   name: 'rendering-with-directives',
@@ -31,4 +31,3 @@ export default {
 
 }
 </script>
-

@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="conditional-section">
-      <h4 class="mb-3">What is you favorite NFC North Team?</h4>
+      <h2 class="mb-3">What is you favorite NFC North Team?</h2>
       <!-- use v-for to loop through teams array -->
-      <div v-for="team in teams" :key="team">
+      <div v-for="team in teams" :key="team" style="font-size: 1.2rem;">
         <input type="radio" :value="team" v-model="selectedTeam">
         <span class="ml-2">{{ team || "I don't like any of these teams" }}</span>
       </div>
@@ -19,7 +19,7 @@
       <h3 v-else-if="selectedTeam === 'Packers'">&#128078; Boo {{ selectedTeam }}! &#x1F44E;</h3>
 
       <!-- there are actually lions fans out there? -->
-      <h3 v-else>Really, the {{ selectedTeam }} have fans?</h3>
+      <h3 v-else>The {{ selectedTeam }} actually have fans?</h3>
 
     </div>
 

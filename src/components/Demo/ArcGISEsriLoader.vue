@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import DemoContent from '../DemoContent';
+import DemoContent from '../helpers/DemoContent';
 import ArcGISMapView from './ArcGISMapView';
-import { esriLoaderTemplate, esriLoaderCode } from '../../../data/snippets';
+import { esriLoaderTemplate, esriLoaderCode } from '../../data/snippets';
 
 console.log('DEMO COMPONENT: ', DemoContent)
 console.log('MAP VIEW COMPONENT: ', ArcGISMapView)

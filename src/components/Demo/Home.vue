@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import DemoContent from '../DemoContent';
-import { homeTemplate, gettingStartedCode } from '../../../data/snippets';
+import DemoContent from '../helpers/DemoContent';
+import { homeTemplate, gettingStartedCode } from '../../data/snippets';
 
 export default {
   name: 'home',

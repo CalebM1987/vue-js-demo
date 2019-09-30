@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import DemoContent from '../DemoContent';
-import ButtonCounter from './ButtonCounter';
-import { componentsTemplate, componentsCode } from '../../../data/snippets';
+import DemoContent from '../helpers/DemoContent';
+import ButtonCounter from '../Demo/ButtonCounter';
+import { componentsTemplate, componentsCode } from '../../data/snippets';
 
 
 export default {

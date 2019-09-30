@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import Stargazers from '../Stargazers';
+import Stargazers from '../helpers/Stargazers';
 import { intro } from '../../data/lecture';
-import InfoGroup from '../InfoGroup';
+import InfoGroup from '../helpers/InfoGroup';
 console.log('intro: ', intro)
 
 export default {

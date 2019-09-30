@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import DemoContent from '../DemoContent';
+import DemoContent from '../helpers/DemoContent';
 import ButtonCounter from './ButtonCounter';
-import { componentsTemplate, componentsCode } from '../../../data/snippets';
+import { componentsTemplate, componentsCode } from '../../data/snippets';
 
 
 export default {

@@ -16,7 +16,7 @@
           </template>
         </sidebar>
 
-        <b-col md="9" style="order: 1;">
+        <b-col md="9" xl="10" style="order: 1;">
           <b-container fluid class="main-container">
             <b-row class="flex-xl-nowrap2">
 
@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import Sidebar from "./components/Sidebar";
-import SidebarMenu from "./components/Menu";
+import Sidebar from "./components/ui/Sidebar";
+import SidebarMenu from "./components/ui/Menu";
 
 export default {
   name: "app",

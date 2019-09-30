@@ -2,7 +2,7 @@
   <div class="code-section">
     <div class="code-container mt-4">
       <p class="mb-2">{{ label || lang }}:</p>
-      <pre><code :class="['hljs', lang]" v-html="marked.value">
+      <pre><code :class="['hljs', lang, 'code-section']" v-html="marked.value">
         {{ marked.value }}
       </code></pre> 
     </div>
@@ -55,8 +55,12 @@ export default {
 <style>
 .code-container pre code {
   max-height: 450px;
-  max-width: 800px;
+  /* max-width: 800px; */
   overflow-y: auto;
+}
+
+.code-section {
+  font-size: 1.1rem;
 }
 </style>
 

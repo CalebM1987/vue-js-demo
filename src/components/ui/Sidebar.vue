@@ -1,6 +1,6 @@
 <template>
   <!--<div class="sidebar-container">-->
-    <b-col md="3" class="sidebar-container mb-4">
+    <b-col md="3" xl="2" class="sidebar-container mb-4">
       <div class="sidebar-body">
         <slot name="sidebar-body">
           <p>test sidebar</p>
