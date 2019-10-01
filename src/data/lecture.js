@@ -60,16 +60,37 @@ export const vBind = {
     `The <code>v-bind</code> directive can be used to add dynamic behavior to your markup for common html attributes.  Some examples are:`
   ],
   bullets: [
-    `<strong>href</strong> - <code>v-bind:href="url"</code> or you can use the shorthand <code>:href="url"</code>`,
-    `<strong>class</strong> - <code>v-bind:class="{ 'active': isActive, 'text-danger': hasError }"</code> or shorthand <code>:class="dynamicClass"</code>`,
-    `<strong>disabled</strong> - <code>&lt;button :disabled="someCondition"&gt;Click Me&lt;/button&gt;</code>`,
-    `<strong>innerHTML</strong> - <code>v-html="dynamicHtml"</code> will render dynamic html as the <code>innerHTML</code>`
+    `<strong>href</strong> - <code>&lt;a v-bind:href="url"&gt;Dynamic Link&lt;/a&gt;</code> or you can use the shorthand <code>:href="url"</code>`,
+    `<strong>class</strong> - <code>&lt;button v-bind:class="{ 'active': isActive, 'text-danger': hasError }"&gt;Click Me&lt;/button&gt;</code> or shorthand <code>:class="dynamicClass"</code>`,
+    `<strong>disabled</strong> - <code>&lt;button :disabled="someCondition"&gt;Click Me&lt;/button&gt;</code>, using shorthand <code>:disabled</code>`,
+    `<strong>innerHTML</strong> - <code>&lt;div v-html="dynamicHtml"&gt;&lt;/div&gt;</code> will render dynamic html as the <code>innerHTML</code>`
+  ]
+}
+
+export const vOn = {
+  text: [
+    `Native html events also use directives to handle events that are propogated from user interaction.  The <code>v-on</code> directive accepts an event name to capture along with a callback to handle the event.  The event handler callback will take the event as the first parameter.`,
+    `The syntax is either <code>v-bind:event="eventHandler"</code> or the shorthand <code>@event="eventHandler"</code>.  Some examples can be found below:`
+  ],
+
+  bullets: [
+    `click - <code>&lt;button v-on:click="clickHandler"&gt;Click Me&lt;/button&gt;</code>. Note, you can also use the shorthand <code>@click="clickHandler"</code>`,
+    `keydown - <code>&lt;input type="text" @keydown="handleKeydown"&gt;</code>`
+  ]
+}
+
+export const eventModifiers = {
+  text: [
+
+  ],
+  bullets: [
+
   ]
 }
 
 export const propsAndEvents = {
   text: [
-    `Data can easily be passed to and from components.  The rule of thumb with Vue, is pass data down to child components through <code>props</code>, and send data back up to the parent via <code>events</code>.`
+    `Data can easily be passed to and from components.  The basic rule of thumb with Vue, is pass data down to child components through <code>props</code>, and send data back up to the parent via <code>events</code>.`
 
   ],
   bullets: [

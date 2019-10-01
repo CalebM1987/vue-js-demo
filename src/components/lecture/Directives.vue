@@ -29,13 +29,24 @@
         <info-group title="The <code>v-bind</code> Directive" :info="vBind"></info-group>
       </b-col>
     </b-row>
+
+    <b-row class="mt-3">
+      <b-col class="mx-auto" md="12" xl="10">
+        <info-group title="Events and Modifiers" :info="vOn">
+
+          <code></code>
+
+        </info-group>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script>
   import InfoGroup from '../helpers/InfoGroup';
+  import InfoContent from '../helpers/InfoContent';
   import CodeContainer from '../helpers/CodeContainer';
-  import { vFor, vIf, vBind } from '../../data/lecture';
+  import { vFor, vIf, vBind, vOn } from '../../data/lecture';
   import { listExample } from '../../data/snippets';
 
   export default {
@@ -43,13 +54,15 @@
 
     components: {
       InfoGroup,
-      CodeContainer
+      CodeContainer,
+      InfoContent
     },
 
     data(){
       return {
         vFor,
         vIf,
+        vOn,
         vBind,
         listExample,
         fruits: ['Apple', 'Banana', 'Orange', 'Strawberry']

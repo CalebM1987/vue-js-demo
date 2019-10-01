@@ -1,7 +1,7 @@
 <template>
   <!-- style="max-width: 37rem;" -->
   <b-row>
-    <b-col>
+    <b-col md="12" xl="10" class="mx-auto">
       <b-card title="The Vue Instance" 
           img-src="../../../assets/vue-reactivity.png"
           class="mt-2 mb-4">
@@ -22,7 +22,7 @@
 
         <h4 class="mt-4">Lifecycle Hooks</h4>
         <hr>
-        <p class="card-text mt-3">In addition to the above properties, each instance also has Lifecycle hooks for the various stages of the instance creation and destruction.  See the image below:</p>
+        <p class="card-text mt-3">In addition to the above properties, each instance also has Lifecycle hooks where code can be executed for custom behavior for the various stages of the instance creation and destruction. See the image below:</p>
 
         <b-img src="../../../assets/lifecycle.png"></b-img>
       </b-card>
