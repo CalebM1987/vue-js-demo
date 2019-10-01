@@ -132,12 +132,13 @@ const app =  new Vue({
   } 
 })`
 
+const greetingToken = '`${this.prefix}, ${this.name}!`'
 export const singleFileCode = `<!-- template (Greeting.vue) -->
 <template>
   <!-- injected into parent component -->
   <div>
-    <p>HTML Structure</p>
-    <div class="someClass text-center font-weight-bold">{{ greeting }}</div>
+    <p>Name Card</p>
+    <div class="someClass text-center font-weight-bold" @click="changeColor" :style="textStyle">{{ greeting }}</div>
   </div>
   <!-- injected into parent component -->
 </template>
@@ -151,19 +152,52 @@ export const singleFileCode = `<!-- template (Greeting.vue) -->
       name: {
         type: String,
         default: 'World'
-      }
+      },
+
     },
 
     data(){
       return {
-        prefix: 'Hello'
+        prefix: 'Hello',
+        color: 'red', // default color
+        randomColors: [
+          'red',
+          'orange', 
+          'yellow', 
+          'green',
+          'black', 
+          'purple',
+          'coral',
+          'pink',
+          'magenta',
+          'plum',
+          'royalblue',
+          'white',
+          'darkred'
+        ]
+      }
+    },
+
+    methods: {
+      changeColor(){
+        const otherColors = this.randomColors.filter(c => c !== this.color);
+        this.color = otherColors[Math.floor(Math.random() * Math.floor(otherColors.length))];
+        // emit the 'changed-color' event
+        this.$emit('changed-color', { name: this.name, color: this.color });
       }
     },
 
     computed: {
+      textStyle(){
+        return {
+          color: this.color
+        }
+      },
+
       greeting(){
-        return \`\${this.prefix}, \${this.name}!\`;
+        return ${greetingToken};
       }
+      
     }
     
   }
@@ -172,11 +206,17 @@ export const singleFileCode = `<!-- template (Greeting.vue) -->
 <style>
 /* nested component style definition */ 
   .someClass{
-    color: red;
     background-color: lightblue;
     padding: 1rem;
+    cursor: pointer !important;
+  }
+
+  .someClass:hover{
+    text-decoration: underline;
   }
 </style>`
+
+const styleToken = '`color: ${info.color}`';
 
 export const singleFileTemplate = `<!-- main.js -->
 <template>
@@ -191,11 +231,21 @@ export const singleFileTemplate = `<!-- main.js -->
     <b-card-group>
       
       <!-- use the 'v-for' directive to repeat elements based on data array -->
-      <b-card v-for="name in names" :key="name">
-        <greeting :name="name"></greeting>
+      <b-card v-for="person in selected" :key="person" class="m-2">
+        <greeting :name="person" @changed-color="displayColorChange"></greeting>
       </b-card>
 
     </b-card-group>
+
+    <div class="mt-5">
+      <!-- show event log here -->
+      <h5>Events ({{ infos.length }}):</h5>
+      <hr>
+      <p v-for="(info,i) in infos" :key="i" >
+        Changed color for <strong>{{ info.name }}</strong> to <span class="clr" :style="${styleToken}">{{ info.color }}</span>
+      </p>
+    </div>
+
     
   </div>
 </template>
@@ -222,6 +272,21 @@ const app = new Vue({
     return {
       names: ['John', 'Paul', 'Kelly', 'Nate', 'Brittany', 'David'],
       selected: [], // this will be used to store the filter from checkbox
+      infos: []  // store events here
+    }
+  },
+
+  methods: {
+
+    /* event handler for 'changed-color' event */
+    displayColorChange(info){
+      this.infos.push(info);
+
+      // clear message after 3 seconds
+      setTimeout(()=>{
+        this.infos.shift();
+      }, 3000);
+
     }
   },
 
@@ -423,3 +488,62 @@ export const listExample = `<html lang="en">
   </body>
 </html>
 `
+
+export const eventModifiersSnippet = `<!-- the click event's propagation will be stopped -->
+<a v-on:click.stop="doThis"></a>
+
+<!-- the submit event will no longer reload the page -->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- modifiers can be chained -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- just the modifier -->
+<form v-on:submit.prevent></form>
+
+<!-- use capture mode when adding the event listener -->
+<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<div v-on:click.capture="doThis">...</div>
+
+<!-- only trigger handler if event.target is the element itself -->
+<!-- i.e. not from a child element -->
+<div v-on:click.self="doThat">...</div>`
+
+
+export const routerSetup = `import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+// register plugin
+Vue.use(VueRouter);
+
+const User = {
+  template: '<div>User {{ $route.params.id }}</div>'
+}
+
+const router = new VueRouter({
+  routes: [
+    // dynamic segments start with a colon
+    { path: '/user/:id', component: User }
+  ]
+});`
+
+export const mainVueRouter = `import Vue from 'vue';
+import router from './router';
+
+const app = new Vue({
+  el: '#app',
+  router
+})`
+
+
+export const vueConfigMapbox = `const webpack = require('webpack');
+module.exports = {
+  publicPath: './',
+  configureWebpack: config => {
+    // now we must provide a webpack plugin for mapbox-gl
+    // https://github.com/phegman/vue-mapbox-gl#importing-mapbox-gl-js-with-webpack
+    config.plugins.push(new webpack.ProvidePlugin({
+      mapboxgl: 'mapbox-gl'
+    }));
+  }
+}`

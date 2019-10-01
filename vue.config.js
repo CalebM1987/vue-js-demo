@@ -14,5 +14,11 @@ module.exports = {
         config.optimization.minimizer[0].options.uglifyOptions.compress.drop_console = true;
       }
     }
+
+    // now we must provide a webpack plugin for mapbox-gl
+    // https://github.com/phegman/vue-mapbox-gl#importing-mapbox-gl-js-with-webpack
+    config.plugins.push(new webpack.ProvidePlugin({
+      mapboxgl: 'mapbox-gl'
+    }));
   }
 }

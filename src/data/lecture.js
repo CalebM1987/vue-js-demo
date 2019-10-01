@@ -60,10 +60,10 @@ export const vBind = {
     `The <code>v-bind</code> directive can be used to add dynamic behavior to your markup for common html attributes.  Some examples are:`
   ],
   bullets: [
-    `<strong>href</strong> - <code>&lt;a v-bind:href="url"&gt;Dynamic Link&lt;/a&gt;</code> or you can use the shorthand <code>:href="url"</code>`,
-    `<strong>class</strong> - <code>&lt;button v-bind:class="{ 'active': isActive, 'text-danger': hasError }"&gt;Click Me&lt;/button&gt;</code> or shorthand <code>:class="dynamicClass"</code>`,
-    `<strong>disabled</strong> - <code>&lt;button :disabled="someCondition"&gt;Click Me&lt;/button&gt;</code>, using shorthand <code>:disabled</code>`,
-    `<strong>innerHTML</strong> - <code>&lt;div v-html="dynamicHtml"&gt;&lt;/div&gt;</code> will render dynamic html as the <code>innerHTML</code>`
+    `href - <code>&lt;a v-bind:href="url"&gt;Dynamic Link&lt;/a&gt;</code> or you can use the shorthand <code>:href="url"</code>`,
+    `class - <code>&lt;button v-bind:class="{ 'active': isActive, 'text-danger': hasError }"&gt;Click Me&lt;/button&gt;</code> or shorthand <code>:class="dynamicClass"</code>`,
+    `disabled - <code>&lt;button :disabled="someCondition"&gt;Click Me&lt;/button&gt;</code>, using shorthand <code>:disabled</code>`,
+    `innerHTML - <code>&lt;div v-html="dynamicHtml"&gt;&lt;/div&gt;</code> will render dynamic html as the <code>innerHTML</code>`
   ]
 }
 
@@ -75,16 +75,39 @@ export const vOn = {
 
   bullets: [
     `click - <code>&lt;button v-on:click="clickHandler"&gt;Click Me&lt;/button&gt;</code>. Note, you can also use the shorthand <code>@click="clickHandler"</code>`,
-    `keydown - <code>&lt;input type="text" @keydown="handleKeydown"&gt;</code>`
+    `keydown - <code>&lt;input type="text" @keydown="handleKeydown"&gt;</code>`,
+    `submit - <code>&lt;form @submit="submitForm"&gt;</code>`,
   ]
 }
 
 export const eventModifiers = {
   text: [
-
+    'While Vue provides some very convenient event handling through the <code>v-on</code> directive, there are times where the events need to be modified to prevent default behavior or stop an event from bubbling up or going down domNodes.  For these cases, Vue provides <a href="https://vuejs.org/v2/guide/events.html#Event-Modifiers" target="_blank">Event Modifiers</a>.'
   ],
   bullets: [
+    `<code>.stop</code> - same as <code>event.stopPropogation()</code>`,
+    `<code>.prevent</code> - same as <code>event.preventDefault()</code>`,
+    `<code>.capture</code> - handle event here before inner elements`,
+    `<code>.self</code> - only trigger if event.target is element itself`,
+    `<code>.once</code> - only handle event the first time`,
+    `<code>.passive</code> - indicates that the event handler will never call <code>preventDefault()</code>`
+  ]
+}
 
+export const keyModifiers = {
+  text: [
+    `There are other modifiers too that come out of the box with vue, such as <a href="https://vuejs.org/v2/guide/events.html#Key-Modifiers" target="_blank">key modifiers</a>, which have helpers for when the user hits certain keys on the keyboard.  Below are some <code>keyup</code> modifiers:`
+  ],
+
+  bullets: [
+    `<code>.enter</code>`,
+    `<code>.tab</code>`,
+    `<code>.esc</code>`,
+    `<code>.space</code>`,
+    `<code>.up</code> - up arrow key`,
+    `<code>.down</code> - down arrow key`,
+    `<code>.left</code> - left arrow key`,
+    `<code>.right</code> - right arrow key`,
   ]
 }
 
@@ -94,6 +117,61 @@ export const propsAndEvents = {
 
   ],
   bullets: [
+   
+  ]
+}
+
+export const vueRouterNotes = {
+  text: [
+    `The <a href="https://router.vuejs.org/" target="_blank">Vue-Router</a> is a plugin that assists with setting up Single Page Applications (SPA's).  The plugin includes a <code>&lt;router-view/&gt;</code> component where all routes will be rendered and navigated programmatically, or you can use <code>&lt;router-link&gt;</code> components to create clickable links that will navitage to different routes.  It allows for:`
+  ],
+
+  bullets: [
+    'nested route/view mapping',
+    'component based router config - a route will render a single component',
+    'can pass params, uri query, or wildcards to match routes',
+    'navigation can use transitions',
+    `HTML5 history mode - uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" target="_blank">History API</a>`,
+    'can specify a default route when no matching route is found (i.e. page not found content)'
+  ]
+}
+
+
+export const navigationGuardNotes = {
+  text: [
+    `<a href="https://router.vuejs.org/guide/advanced/navigation-guards.html" target="_blank">Navigation Gaurds</a> are an extremely useful feature that will prevent or redirect navigation between routes.  One example is if the user is filling out form based data and attempts to navigate away via the back button or another link, a navigation guard can pause navigation and ask if the user wants to save their progress before leaving the page. The in-component guards that you can hook into within a component are:`
+  ],
+
+  bullets: [
+    `<code>beforeRouteEnter</code> - called before the route renders the component, do <strong>not</strong> have scope to component via <code>this</code> because it hasn't been created yet`,
+    `<code>beforeRouteUpdate</code> - called when the component that renders this component has changed, such as a dynamic route with path being <code>'/users/:id'</code> changes from <code>'/users/1'</code> to <code>'/users/2'</code>`,
+    `<code>beforeRouteLeave</code> - called before navigating away from this route, here is where you could prompt a user to save their progress before moving on`
+  ]
+}
+
+export const mappingInfo = {
+  text: [
+    `There are numerous JavaScript libraries for viewing data in maps.  Some have more powerful capabilities beyond just displaying data.  Some examples are:`
+  ],
+
+  bullets: [
+    `<a href="https://docs.mapbox.com/mapbox-gl-js/api/" target="_blank">Mapbox-GL</a>`,
+    `<a href="https://developers.arcgis.com/javascript/" target="_blank">ArcGIS JavaScript API</a>`,
+    `<a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_blank">Google Maps</a>`,
+    `<a href="https://leafletjs.com/" target="_blank">Leaflet</a>`,
+    'and many more...'
+  ]
+}
+
+export const mapboxGLNotes = {
+  text: [
+    `<code>Mapbox-GL JS</code> is a JavaScript API that supports very rich data rendering capabilities, and also supports vector tiles. As the name suggests, it is built with <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" target="_blank">WebGL</a>.`,
+    `For Vue.js, you can use <a href="https://github.com/phegman/vue-mapbox-gl" target="_blank">mapbox-gl-vue</a> available, which includes methods to get hooks into the map object's lifecycle. The only extra thing you need to do to get it to work when building Vue apps with Node.js is to shim <code>mapbox-gl</code> as a <a href="https://webpack.js.org/" target="_blank">Webpack</a> Plugin</a></code>).  This can be done in a <code>webpack.config.js</code> file, or the <code>vue.config.js</code> file if using the <code>@vue/cli</code>:`
+  ]
+}
+
+export const arcgisNotes = {
+  text: [
 
   ]
 }

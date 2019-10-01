@@ -32,11 +32,21 @@
 
     <b-row class="mt-3">
       <b-col class="mx-auto" md="12" xl="10">
-        <info-group title="Events and Modifiers" :info="vOn">
-
-          <code></code>
+        <info-group title="Events" :info="vOn">
 
         </info-group>
+      </b-col>
+    </b-row>
+
+    <b-row class="mt-3">
+      <b-col class="mx-auto" md="12" xl="10">
+        <info-group title="Modifiers" :info="eventModifiers"></info-group>
+
+        <p class="card-text">The below examples are taken directly from the <a href="https://vuejs.org/v2/guide/events.html#Event-Modifiers" target="_blank">vue docs</a>:</p>
+
+        <code-container :code="eventModifiersSnippet" lang="html"></code-container>
+
+        <info-content :info="keyModifiers" class="mt-4"></info-content>
       </b-col>
     </b-row>
   </b-container>
@@ -46,8 +56,8 @@
   import InfoGroup from '../helpers/InfoGroup';
   import InfoContent from '../helpers/InfoContent';
   import CodeContainer from '../helpers/CodeContainer';
-  import { vFor, vIf, vBind, vOn } from '../../data/lecture';
-  import { listExample } from '../../data/snippets';
+  import { vFor, vIf, vBind, vOn, eventModifiers, keyModifiers } from '../../data/lecture';
+  import { listExample, eventModifiersSnippet } from '../../data/snippets';
 
   export default {
     name: 'directives',
@@ -64,6 +74,9 @@
         vIf,
         vOn,
         vBind,
+        keyModifiers,
+        eventModifiers,
+        eventModifiersSnippet,
         listExample,
         fruits: ['Apple', 'Banana', 'Orange', 'Strawberry']
       }

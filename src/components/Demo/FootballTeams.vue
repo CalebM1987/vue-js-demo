@@ -16,7 +16,7 @@
       <h3 v-if="['Bears', 'Vikings'].includes(selectedTeam)">Go {{ selectedTeam }}!!!</h3>
 
       <!-- boo for packers -->
-      <h3 v-else-if="selectedTeam === 'Packers'">&#128078; Boo {{ selectedTeam }}! &#x1F44E;</h3>
+      <h3 v-else-if="selectedTeam === 'Packers'">&#128078; Boo {{ selectedTeam }}! &#x1F44E; &#128169; &#128169; &#128169;</h3>
 
       <!-- there are actually lions fans out there? -->
       <h3 v-else>The {{ selectedTeam }} actually have fans?</h3>

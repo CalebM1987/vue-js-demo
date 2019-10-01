@@ -73,9 +73,9 @@ export const menu = [
     name: "Mapping",
     children: [
       {
-        name: "Mapping Demos",
-        route: "mapping-examples",
-        component: ()=> import("../components/Demo/MappingExample")
+        name: "Using Maps",
+        route: "/using-maps",
+        component: ()=> import("../components/lecture//UsingMaps")
       }, {
         name: "ArcGIS esri-loader",
         route: "/arcgis-esri-loader",
