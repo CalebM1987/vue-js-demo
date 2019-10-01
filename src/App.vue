@@ -10,13 +10,14 @@
     <!-- SIDEBAR-->
     <b-container fluid style="margin-top: 1.25rem;">
       <b-row>
-        <sidebar ref="sidebar">
+        <sidebar ref="sidebar" :cols="sidebarCols">
           <template slot="sidebar-body">
             <sidebar-menu></sidebar-menu>
           </template>
         </sidebar>
 
-        <b-col md="9" xl="10" style="order: 1;">
+        <!-- md="9" xl="10" -->
+        <b-col :cols="12 - sidebarCols" style="order: 1;">
           <b-container fluid class="main-container">
             <b-row class="flex-xl-nowrap2">
 
@@ -52,13 +53,39 @@ export default {
 
   data() {
     return {
-      excludeAlive: []
+      excludeAlive: [],
+      resizer: null,
+      screenSize: {
+        height: window.innerHeight,
+        width: window.innerWidth
+      }
     };
   },
 
-  mounted() {
+   mounted(){
     hook.app = this;
+    this.resizer = window.addEventListener('resize', ()=>{
+      this.screenSize = {
+        height: window.innerHeight,
+        width: window.innerWidth
+        // height: document.body.clientHeight,
+        // width: document.body.clientWidth
+      }
+    })
+  },
+
+  beforeDestroy(){
+    if (this.resizer){
+      this.resizer.remove();
+    }
+  },
+
+  computed: {
+    sidebarCols(){
+      return this.screenSize.width >= 1300 ? 2: 3
+    }
   }
+
 };
 </script>
 

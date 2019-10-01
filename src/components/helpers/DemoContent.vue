@@ -13,13 +13,13 @@
           <slot name="code">
             <b-container fluid>
               <b-row>
-                <b-col md="10" xl="8">
+                <b-col md="12" xl="10">
                   <code-container :lang="'html'" :label="templateLabel" :code="templateCode" v-if="templateCode"/>
                 </b-col>
               </b-row>
       
               <b-row>
-                <b-col md="10" xl="8">
+                <b-col md="12" xl="10">
                   <code-container :lang="lang" :code="code"  :label="codeLabel"/>
                 </b-col>
               </b-row>

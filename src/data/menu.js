@@ -31,6 +31,10 @@ export const menu = [
         ]
 
       }, {
+        name: "The Vue Instance",
+        route: "/the-vue-instance",
+        component: ()=> import("../components/lecture/TheVueInstance")
+      }, {
         name: "Components",
         route: "/components",
         component: ()=> import("../components/lecture/Components"),
@@ -52,10 +56,6 @@ export const menu = [
             component: ()=> import("../components/Demo/SingleFileExample")
           }
         ]
-      }, {
-        name: "The Vue Instance",
-        route: "/the-vue-instance",
-        component: ()=> import("../components/lecture/TheVueInstance")
       }, {
         name: "Vue Router",
         route: "/vue-router",

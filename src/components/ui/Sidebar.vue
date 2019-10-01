@@ -1,6 +1,6 @@
 <template>
-  <!--<div class="sidebar-container">-->
-    <b-col md="3" xl="2" class="sidebar-container mb-4">
+  <!--<div class="sidebar-container" md="3" xl="2">-->
+    <b-col :cols="cols" class="sidebar-container mb-4">
       <div class="sidebar-body">
         <slot name="sidebar-body">
           <p>test sidebar</p>
@@ -8,17 +8,19 @@
       </div>
     </b-col>
 
-
   <!--</div>-->
 </template>
 
 <script>
 export default {
   name: "sidebar",
-  data() {
-    return {};
-  },
-  methods: {}
+
+  props: {
+    cols: {
+      type: Number,
+      default: 3
+    }
+  }
 };
 </script>
 

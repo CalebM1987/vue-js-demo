@@ -1,3 +1,5 @@
+import { STATUS_CODES } from "http";
+
 export const intro = {
     "text": [
       "Vue.js is a progressive JavaScript Framework that is approachable, versatile, and performant. Using frameworks make building web applications easier than the traditional development process.  The benefits of choosing Vue over other frameworks are:"
@@ -32,8 +34,11 @@ export const modelingData = {
 
 export const vFor = {
   text: [
-    `By modeling data to form inputs, we have already used <a href="https://012.vuejs.org/guide/directives.html" target="_blank">directives</a>, namely the <code>v-model</code> directive.  However, Vue has many builtin directives that can make your life easier.  One is the <code>v-for</code> directive.`,
-    `Any time an element needs to be repeated by an <code>array</code> within the data, the <code>v-for</code> directive can be used to render a list.  See the example below.`
+    `By modeling data to form inputs, we have already used <a href="https://012.vuejs.org/guide/directives.html" target="_blank">directives</a>, namely the <code>v-model</code> directive.  However, Vue has many builtin directives that can make your life easier.  These are prefixed with <code>'v-'</code> to help identify Vue specific attributes. One is the <code>v-for</code> directive.`,
+    `Any time an element needs to be repeated by an <code>array</code> within the data, the <code>v-for</code> directive can be used to render a list.`  
+  ],
+  bullets: [
+    `<strong>tip</strong> - you can set a unique <code>key</code> attribute for each element, which are set to keep track of the elements so they can be reused or reordered.`
   ]
 
 }
@@ -52,10 +57,13 @@ export const vIf = {
 
 export const vBind = {
   text: [
-
+    `The <code>v-bind</code> directive can be used to add dynamic behavior to your markup for common html attributes.  Some examples are:`
   ],
   bullets: [
-
+    `<strong>href</strong> - <code>v-bind:href="url"</code> or you can use the shorthand <code>:href="url"</code>`,
+    `<strong>class</strong> - <code>v-bind:class="{ 'active': isActive, 'text-danger': hasError }"</code> or shorthand <code>:class="dynamicClass"</code>`,
+    `<strong>disabled</strong> - <code>&lt;button :disabled="someCondition"&gt;Click Me&lt;/button&gt;</code>`,
+    `<strong>innerHTML</strong> - <code>v-html="dynamicHtml"</code> will render dynamic html as the <code>innerHTML</code>`
   ]
 }
 
