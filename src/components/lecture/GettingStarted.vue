@@ -1,22 +1,18 @@
 <template>
   <b-container fluid class="mt-5">
-    <b-row>
-      <b-col md="12" xl="10" class="mx-auto">
-        <info-group :title="'Hello World Example'" :info="helloWorld">
-          <code-container :code="helloWorldExample" :label="'HelloWorld.html'"></code-container>
-        </info-group>
-      </b-col>
+    <b-v-column class="mt-3">
+      <info-group :title="'Hello World Example'" :info="helloWorld">
+        <code-container :code="helloWorldExample" :label="'HelloWorld.html'"></code-container>
+      </info-group>
+    </b-v-column>
 
-    </b-row>
-
-     <b-row class="mt-5">
-      <b-col md="12" xl="10" class="mx-auto">
+    <b-v-column class="mt-3">
         <info-group :title="'Modeling Data'" :info="modelingData">
           <code-container :code="modelExampleTemplate"></code-container>
           <code-container :code="modelExampleCode" :lang="'javascript'"></code-container>
+          <p class="mt-3 card-text">Vue also supports more complex data binding out of the box for elements like <code>&lt;select&gt;</code>, <code>checkbox</code>, and <code>radio</code> inputs to name a few.  If the <code>multiple</code> attribute is set, it will also automatically bind to an <code>array</code>.</p>
         </info-group>
-      </b-col>
-     </b-row>
+    </b-v-column>
 
   </b-container>
 </template>

@@ -319,7 +319,7 @@ export const esriLoaderCode = `
 import { loadModules, loadCss } from 'esri-loader';
 
 // load the css from the esri loader;
-loadCss('https://js.arcgis.com/4.10/esri/css/main.css');
+loadCss();
 
 export default {
   name: 'arcgis-map-view',
@@ -527,6 +527,12 @@ const router = new VueRouter({
   ]
 });`
 
+export const lazyLoadRoute = `const router = new VueRouter({
+  routes: [
+    { path: '/foo', component: ()=> import('./Foo.vue') }
+  ]
+})`
+
 export const mainVueRouter = `import Vue from 'vue';
 import router from './router';
 
@@ -547,3 +553,149 @@ module.exports = {
     }));
   }
 }`
+
+export const esriLoaderPromise = `import { loadModules } from 'esri-loader';
+
+// if the API hasn't already been loaded (i.e. the frist time this is run)
+// loadModules() will call loadScript() and pass these options, which,
+// in this case are only needed b/c we're using v3.x instead of the latest 4.x
+const options = { version: '3.28' };
+
+loadModules(['esri/map'], options)
+  .then(([Map]) => {
+    // create map with the given options at a DOM node w/ id 'mapNode'
+    const map = new Map('mapNode', {
+      center: [-118, 34.5],
+      zoom: 8,
+      basemap: 'dark-gray'
+    });
+  })
+  .catch(err => {
+    // handle any script or module loading errors
+    console.error(err);
+  });`
+
+export const esriLoaderAsync = `import { loadModules } from 'esri-loader';
+
+// if the API hasn't already been loaded (i.e. the frist time this is run)
+// loadModules() will call loadScript() and pass these options, which,
+// in this case are only needed b/c we're using v3.x instead of the latest 4.x
+const options = { version: '3.28' };
+
+async createMap(){
+
+  try {
+    const [ Map ] = await loadModules(['esri/map'], options);
+    
+    // create map with the given options at a DOM node w/ id 'mapNode'
+    const map = new Map('mapNode', {
+      center: [-118, 34.5],
+      zoom: 8,
+      basemap: 'dark-gray'
+    });
+  
+  catch(err) {
+    // handle any script or module loading errors
+    console.error(err);
+  };
+
+}
+
+createMap();
+`
+
+export const mapboxTemplate = `<template>
+  <div class="mapbox-container">
+    <mapbox
+      access-token="<your-access-token>"
+      :map-options="{
+        style: 'mapbox://styles/mapbox/light-v10',
+        zoom: 16,
+        center: [-93.265, 44.9778]
+      }"
+    />
+  </div>
+
+</template>
+
+<style>
+  #map {
+    width: 100%;
+    height: 500px;
+  }
+</style>`
+
+export const mapboxScript = `
+import Mapbox from 'mapbox-gl-vue'
+
+export default {
+  name: 'mapbox-example',
+  components: { Mapbox },
+}`
+
+export const simpleComponent = `Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3 style="color: darkorange;>{{ title }}</h3>'
+})`;
+
+export const simpleComponentMarkup = `<blog-post title="My journey with Vue"></blog-post>
+<blog-post title="Blogging with Vue"></blog-post>
+<blog-post title="Why Vue is so fun"></blog-post>`
+
+export const bs4Modal = `<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Hello from modal!.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>`
+
+export const bvModal = `<b-modal id="modal-1" title="BootstrapVue">
+  <p class="my-4">Hello from modal!</p>
+</b-modal>`
+
+export const defaultSlotDef = `<a v-bind:href="url" class="nav-link">
+  <!-- dynamic content will go here -->
+  <slot></slot>
+</a>`
+
+export const useDefaultSlot = `<navigation-link url="/profile">
+  Your Profile
+</navigation-link>`
+
+export const namedSlots = `<div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>`
+
+export const useNamedSlots = `<base-layout>
+  <template v-slot:header>
+    <h1>Here might be a page title</h1>
+  </template>
+
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+
+  <template v-slot:footer>
+    <p>Here's some contact info</p>
+  </template>
+</base-layout>`

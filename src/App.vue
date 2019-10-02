@@ -132,6 +132,10 @@ body{
   color: orange;
   font-size: 90% !important;
   background-color: #e8e8e87e;
-  box-shadow: -3px 0 0 #e8e8e87e, 3px 0 0 ##e8e8e87e;
+  box-shadow: -3px 0 0 #e8e8e87e, 3px 0 0 #e8e8e87e;
+}
+
+.sa-content {
+  font-size: 1.15rem;
 }
 </style>

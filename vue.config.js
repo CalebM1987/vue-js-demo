@@ -1,8 +1,10 @@
+const webpack = require('webpack');
+
 module.exports = {
 	devServer : {
 		"open": true
 	},
-	baseUrl:'./',
+	publicPath:'./',
   productionSourceMap: false,
   configureWebpack: config => {
     // this is not documented very well!

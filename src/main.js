@@ -7,6 +7,10 @@ import router from "./modules/router";
 import "@fortawesome/fontawesome-free/js/all";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
+import BVColumn from './components/helpers/BVColumn';
+
+// make this one global
+Vue.component('b-v-column', BVColumn);
 
 Vue.use(BootstrapVue);
 

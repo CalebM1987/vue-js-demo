@@ -77,6 +77,10 @@ export const menu = [
         route: "/using-maps",
         component: ()=> import("../components/lecture//UsingMaps")
       }, {
+        name: 'Mapbox GL Example',
+        route: '/mapbox-example',
+        component: ()=> import('../components/Demo/MapboxExample')
+      }, {
         name: "ArcGIS esri-loader",
         route: "/arcgis-esri-loader",
         component: ()=> import("../components/Demo/ArcGISEsriLoader")

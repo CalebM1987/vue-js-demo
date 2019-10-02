@@ -1,7 +1,7 @@
 <template>
   <!--<div class="sidebar-container" md="3" xl="2">-->
     <b-col :cols="cols" class="sidebar-container mb-4">
-      <div class="sidebar-body">
+      <div class="sidebar-body mb-5">
         <slot name="sidebar-body">
           <p>test sidebar</p>
         </slot>

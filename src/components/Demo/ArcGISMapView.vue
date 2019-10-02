@@ -6,7 +6,7 @@
 import { loadModules, loadCss } from 'esri-loader';
 
 // load the css from the esri loader;
-loadCss('https://js.arcgis.com/4.10/esri/css/main.css');
+loadCss();
 
 export default {
   name: 'arcgis-map-view',
@@ -50,7 +50,7 @@ export default {
 
 <style>
   #viewDiv{
-    height: 400px;
+    height: 450px;
     width: 100%;
   }
 </style>

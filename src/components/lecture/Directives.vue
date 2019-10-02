@@ -1,54 +1,44 @@
 <template>
   <b-container fluid>
-    <b-row class="mt-3">
-      <b-col md="12" xl="10" class="mx-auto">
-        <h2>Using Vue Directives</h2>
-        <hr>
-        <info-group :info="vFor" :title="'List Rendering (<code>v-for</code>)'" class="mt-5">
-          <code-container :code="listExample" :lang="'javascript'"></code-container>
+    <b-v-column class="mt-3">
+      <h2>Using Vue Directives</h2>
+      <hr>
+      <info-group :info="vFor" :title="'List Rendering (<code>v-for</code>)'" class="mt-5">
+        <code-container :code="listExample" :lang="'javascript'" label="index.html"></code-container>
 
-          <div class="list-preview mt-4" style="font-size: 1.15rem;">
-            <p>the above code will render the following:</p>
-            <ul>
-              <li v-for="fruit in fruits" :key="fruit">{{ fruit }}</li>
-            </ul>
-          </div>
-        </info-group>
+        <div class="list-preview mt-4" style="font-size: 1.15rem;">
+          <p>the above code will render the following:</p>
+          <ul>
+            <li v-for="fruit in fruits" :key="fruit">{{ fruit }}</li>
+          </ul>
+        </div>
+      </info-group>
 
-      </b-col>
-    </b-row>
+    </b-v-column>
 
-    <b-row class="mt-3">
-      <b-col md="12" xl="10" class="mx-auto">
-        <info-group title="Conditional Rendering" :info="vIf"></info-group>
-      </b-col>
-    </b-row>
+    <b-v-column class="mt-3">
+      <info-group title="Conditional Rendering" :info="vIf"></info-group>
+    </b-v-column>
 
-    <b-row class="mt-3">
-      <b-col md="12" xl="10" class="mx-auto">
-        <info-group title="The <code>v-bind</code> Directive" :info="vBind"></info-group>
-      </b-col>
-    </b-row>
+    <b-v-column class="mt-3">
+      <info-group title="The <code>v-bind</code> Directive" :info="vBind"></info-group>
+    </b-v-column>
 
-    <b-row class="mt-3">
-      <b-col class="mx-auto" md="12" xl="10">
+    <b-v-column class="mt-3">
         <info-group title="Events" :info="vOn">
 
         </info-group>
-      </b-col>
-    </b-row>
+    </b-v-column>
 
-    <b-row class="mt-3">
-      <b-col class="mx-auto" md="12" xl="10">
-        <info-group title="Modifiers" :info="eventModifiers"></info-group>
+    <b-v-column class="mt-3">
+      <info-group title="Modifiers" :info="eventModifiers"></info-group>
 
-        <p class="card-text">The below examples are taken directly from the <a href="https://vuejs.org/v2/guide/events.html#Event-Modifiers" target="_blank">vue docs</a>:</p>
+      <p class="card-text">The below examples are taken directly from the <a href="https://vuejs.org/v2/guide/events.html#Event-Modifiers" target="_blank">vue docs</a>:</p>
 
-        <code-container :code="eventModifiersSnippet" lang="html"></code-container>
+      <code-container :code="eventModifiersSnippet" lang="html"></code-container>
 
-        <info-content :info="keyModifiers" class="mt-4"></info-content>
-      </b-col>
-    </b-row>
+      <info-content :info="keyModifiers" class="mt-4"></info-content>
+    </b-v-column>
   </b-container>
 </template>
 

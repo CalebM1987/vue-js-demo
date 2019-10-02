@@ -113,8 +113,9 @@ export const keyModifiers = {
 
 export const propsAndEvents = {
   text: [
-    `Data can easily be passed to and from components.  The basic rule of thumb with Vue, is pass data down to child components through <code>props</code>, and send data back up to the parent via <code>events</code>.`
-
+    `Data can easily be passed to and from components.  The basic rule of thumb with components is to pass data down to child components through <code>props</code>, and send data back up to the parent via <code>events</code>.`,
+    `<code>props</code> can be defined in the component as an array of strings repreesnting the names, or they can be strongly typed as <code>Objects</code> with a type and even default values. </code>Events</code> are emitted from the component via <code>this.$emit('event-name', dataToSend)</code>, and received on the parent component by <code>@event-name="eventHandler"</code>.`,
+    `Here is a simple component example, where a single prop called <code>title</code> is passed in:`
   ],
   bullets: [
    
@@ -136,6 +137,11 @@ export const vueRouterNotes = {
   ]
 }
 
+export const lazyLoadRoutes = {
+  text: [
+    `One thing that can be done to greatly improve performance, especially on the initial load is to <a href="https://router.vuejs.org/guide/advanced/lazy-loading.html" target="_blank">lazy load</a> all the routes.  This will ensure that the components will not get loaded until the app navigates to the route.  Here is how to lazy load a route:`
+  ]
+}
 
 export const navigationGuardNotes = {
   text: [
@@ -163,6 +169,8 @@ export const mappingInfo = {
   ]
 }
 
+
+
 export const mapboxGLNotes = {
   text: [
     `<code>Mapbox-GL JS</code> is a JavaScript API that supports very rich data rendering capabilities, and also supports vector tiles. As the name suggests, it is built with <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" target="_blank">WebGL</a>.`,
@@ -172,6 +180,26 @@ export const mapboxGLNotes = {
 
 export const arcgisNotes = {
   text: [
+    `The ArcGIS JavaScript API is a feature rich library that can work with a variety of data sources.  However, the core is still built on <a href="https://dojotoolkit.org/reference-guide/1.10/loader/amd.html" target="_blank">Dojo's legacy AMD loader</a>.  Because of this, you cannot simply <code>npm install</code> the js api or <code>import</code> (unless you are using TypeScript).`,
+    `Due to this limitation, the most elegant solution when using a module bundler such as Webpack, is to use a small library called the <a href="https://github.com/Esri/esri-loader" target="_blank">esri-loader</a>, which will dynamically append <code>&lt;script&gt;</code> tags to the document and will resolve a <code>Promise</code> when the modules have been loaded.`
+  ]
+}
 
+export const bootstrapVueNotes = {
+  text: [
+    `The <b-link href="https://bootstrap-vue.js.org" target="blank">Bootstrap-Vue</b-link> library is a great example of how to make highly reusable components. It implements Bootstrap 4 conventions and css as Vue.js components.  However, those components are not built via <code>.vue</code> files, but instead implemented in pure JS via Vue's <a href="https://vuejs.org/v2/guide/render-function.html" target="_blank">render functions</a>.`
+  ]
+}
+
+export const slotNotes = {
+  text: [
+    `One of the most powerful features of Vue is the ability to create templates where dynamic content can be placed at specific parts in a component through <a href="https://vuejs.org/v2/guide/components-slots.html" target="_blank">slots</a>.  Slots can represent a default point of injection or mutliple entry points via <a href="https://vuejs.org/v2/guide/components-slots.html#Named-Slots" target="_blank">named slots</a>. Default content can also be set in the slot definition as a fallback if no content is injected from a parent component.`,
+    `When a default slot is used such as the <code>b-modal</code> component, to inject content, you simply add it between the component opening and closing tags.  Creating a default slot looks like this:`
+  ]
+}
+
+export const namedSlotNotes = {
+  text: [
+    `As previously mentioned, when you want to give the ability to let dynamic content be injected in multiple spots, named slots work well.  Suppose you want to create a component where the <code>header</code>, <code>main</code> body, and <code>footer</code> can be inserted dynamically:`
   ]
 }

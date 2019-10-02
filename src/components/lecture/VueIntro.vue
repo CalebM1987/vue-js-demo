@@ -1,16 +1,14 @@
 <template>
   <b-container class="intro mt-4">
   
-    <b-row>
-      <b-col md="10" class="mx-auto">
+    <b-v-column class="mt-3">
 
         <info-group :title="'What is Vue.js?'" :info="intro"></info-group>
 
         <h3 class="mt-5">Github Stargazers for Major JS Frameworks</h3>
         <hr>
 
-      </b-col>
-    </b-row>
+    </b-v-column>
 
     <b-row v-for="i in Math.ceil(stargazers.length / starGroups)" :key="i" class="align-items-end mt-5 mb-5">
       <b-col v-for="sg in stargazers.slice((i-1) * starGroups, i*starGroups)" :key="sg.repo">

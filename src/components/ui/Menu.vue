@@ -36,7 +36,6 @@
         </b-list-group>
       </b-list-group-item>
 
-
     </b-list-group>
   </div>
 </template>
