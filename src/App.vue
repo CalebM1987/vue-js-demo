@@ -19,7 +19,7 @@
         <!-- md="9" xl="10" -->
         <b-col :cols="12 - sidebarCols" style="order: 1;">
           <b-container fluid class="main-container">
-            <b-row class="flex-xl-nowrap2">
+            <b-row class="flex-xl-nowrap2 mb-5">
 
               <b-col>
                 <div class="scrollable bd-content">

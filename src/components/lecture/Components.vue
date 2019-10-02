@@ -16,7 +16,7 @@
         <h3 class="mt-4">Organizing Components</h3>
         <hr>
         <p>An Application can be made up of multiple components and they can even be nested inside other components.</p>
-        <b-img src="../../../assets/nested-components.png" height="300" />
+        <b-img src="./assets/nested-components.png" height="300" />
       </div>
 
     </b-v-column>

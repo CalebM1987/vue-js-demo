@@ -21,7 +21,7 @@ export default {
   name: 'vue-router-example',
   data(){
     return {
-      link: 'http://vue-router-demos.surge.sh/#/examples/basic'
+      link: '//vue-router-demos.surge.sh/#/examples/basic'
     }
   }
 }

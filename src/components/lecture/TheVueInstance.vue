@@ -2,7 +2,7 @@
   <!-- style="max-width: 37rem;" -->
   <b-v-column class="mt-3">
     <b-card title="The Vue Instance" 
-        img-src="../../../assets/vue-reactivity.png"
+        img-src="./assets/vue-reactivity.png"
         class="mt-2 mb-4">
       <!-- <p>In the examples shown so far, we have mostly only seen the <code>data</code> property used when initializing Vue (which should always be a <code>function</code> that returns an object).</p> -->
       <p class="card-text">Properties stored in Vue.js are <i>reactive</i>, meaning that whenever the <code>'msg'</code> property in the <router-link tag="a" to="/getting-started">Getting Started</router-link> example is changed, the DOM will automatically update by following the <a href="https://pawelgrzybek.com/the-observer-pattern-in-javascript-explained/" target="_blank">Observer</a> Pattern.</p>
@@ -23,7 +23,9 @@
       <hr>
       <p class="card-text mt-3">In addition to the above properties, each instance also has Lifecycle hooks where code can be executed for custom behavior for the various stages of the instance creation and destruction. See the image below:</p>
 
-      <b-img src="../../../assets/lifecycle.png" width="650"></b-img>
+      <div class="text-center">
+        <b-img src="./assets/lifecycle.png" width="650"></b-img>
+      </div>
     </b-card>
 
   </b-v-column>

@@ -1,5 +1,5 @@
 <template>
-  <b-container class="intro mt-4">
+  <b-container class="intro">
   
     <b-v-column class="mt-3">
 

@@ -6,7 +6,7 @@
       <div class="content" style="font-size: 1.1rem;">
         <p>As an application scales up or grows in complexity, <b-link href="https://vuejs.org/v2/guide/single-file-components.html" target="_blank"><code>.vue</code> files</b-link> can be used to make a more modular application.  </p>
   
-        <b-img src="../../../assets/vue-file.png" height="600" />
+        <b-img src="./assets/vue-file.png" height="600" />
 
         <p>By developing this way, there are many advantages:</p>
 

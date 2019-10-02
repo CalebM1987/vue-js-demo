@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="mt-5">
+  <b-container fluid>
     <b-v-column class="mt-3">
       <info-group :title="'Hello World Example'" :info="helloWorld">
         <code-container :code="helloWorldExample" :label="'HelloWorld.html'"></code-container>

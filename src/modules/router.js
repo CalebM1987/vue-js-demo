@@ -4,6 +4,8 @@ import { menu } from '../data/menu';
 
 Vue.use(VueRouter);
 
+const isDev = window.location.origin.includes('localhost:');
+
 const routes = [];
 
 function loadRoute(item){
@@ -24,6 +26,7 @@ for (const item of menu){
 }
 
 export default new VueRouter({
+  base: isDev ? './': './mn_gis/vue-js-demo',
   routes: routes,
   mode: 'history'
 });
