@@ -51,7 +51,7 @@ export const menu = [
         component: ()=> import("../components/lecture/SingleFileDescription"),
         children: [
           {
-            name: "Single Vile Example",
+            name: "Single File Example",
             route: "/single-file-example",
             component: ()=> import("../components/Demo/SingleFileExample")
           }
