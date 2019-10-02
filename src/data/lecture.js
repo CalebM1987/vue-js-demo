@@ -1,5 +1,3 @@
-import { STATUS_CODES } from "http";
-
 export const intro = {
     "text": [
       "Vue.js is a progressive JavaScript Framework that is approachable, versatile, and performant. Using frameworks make building web applications easier than the traditional development process.  The benefits of choosing Vue over other frameworks are:"
