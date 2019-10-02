@@ -6,30 +6,18 @@ import Vue from "vue";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 import {
-  faExternalLink,
-  faAlignJustify
-} from "@fortawesome/pro-light-svg-icons";
+  faListAlt
+} from '@fortawesome/free-regular-svg-icons'
 
 import {
-  faSpinner,
-  faUserCircle,
-  faArrowCircleLeft,
-  faPlusCircle,
-  faMinusCircle,
-  faUsers,
-  faUserTimes,
+  faColumns,
+  faExternalLinkAlt,
   faStar
-} from "@fortawesome/pro-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
-  faExternalLink,
-  faAlignJustify,
-  faSpinner,
-  faUserCircle,
-  faArrowCircleLeft,
-  faPlusCircle,
-  faMinusCircle,
-  faUsers,
-  faUserTimes,
+  faColumns,
+  faExternalLinkAlt,
+  faListAlt,
   faStar
 );

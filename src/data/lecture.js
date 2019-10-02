@@ -203,3 +203,11 @@ export const namedSlotNotes = {
     `As previously mentioned, when you want to give the ability to let dynamic content be injected in multiple spots, named slots work well.  Suppose you want to create a component where the <code>header</code>, <code>main</code> body, and <code>footer</code> can be inserted dynamically:`
   ]
 }
+
+export const aboutThisApp = {
+  text: [
+    `This Application's purpose is to serve as a very basic introduction to Vue.js, and is not all inclusive of all the functionality that Vue has to offer.  This application itself is built using Vue, so if you are interested in the code check out the <a href="https://github.com/CalebM1987/vue-js-demo" target="_blank">github repo</a> for this project.`,
+    `Any Vue related images were obtained from the official Vue docs, and many of the example components from the lecture are also from the docs with a few tweaks to demonstrate certain functionality.`,
+    'I hope you found this useful!'
+  ]
+}

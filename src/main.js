@@ -4,8 +4,7 @@ import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import router from "./modules/router";
-import "@fortawesome/fontawesome-free/js/all";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import './modules/icons';
 import axios from "axios";
 import BVColumn from './components/helpers/BVColumn';
 
@@ -13,9 +12,6 @@ import BVColumn from './components/helpers/BVColumn';
 Vue.component('b-v-column', BVColumn);
 
 Vue.use(BootstrapVue);
-
-// register these components globally
-Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 

@@ -86,5 +86,16 @@ export const menu = [
         component: ()=> import("../components/Demo/ArcGISEsriLoader")
       }
     ]
+  }, {
+
+    name: 'About',
+    children: [
+      {
+        name: 'About this App',
+        route: '/about',
+        component: ()=> import('../components/ui/About')
+      }
+    ]
   }
+
 ]
