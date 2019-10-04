@@ -27,7 +27,7 @@
 
           </b-card-group>
 
-          <div class="mt-5">
+          <div class="mt-5 events-section">
             <!-- show event log here -->
             <h5>Events ({{ infos.length }}):</h5>
             <hr>
@@ -101,5 +101,9 @@ export default {
   .clr {
     background-color: lightgrey;
     padding: 3px;
+  }
+
+  .events-section {
+    min-height: 250px;
   }
 </style>

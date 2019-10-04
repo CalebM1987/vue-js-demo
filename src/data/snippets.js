@@ -81,9 +81,7 @@ export const gettingStartedCode = `const app = new Vue({
         message: '',
         checked: false,
         selectedName: null,
-        selectedNames: [],
-        code: gettingStartedCode,
-        tempCode: gettingStartedTemplate
+        selectedNames: []
       }
     },
   
@@ -652,7 +650,7 @@ export const bs4Modal = `<div class="modal" tabindex="-1" role="dialog">
         </button>
       </div>
       <div class="modal-body">
-        <p>Hello from modal!.</p>
+        <p>Hello from modal!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Save changes</button>

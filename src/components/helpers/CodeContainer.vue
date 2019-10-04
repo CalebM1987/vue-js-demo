@@ -60,7 +60,7 @@ export default {
 }
 
 .code-section {
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 </style>
 

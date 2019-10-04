@@ -185,7 +185,7 @@ export const arcgisNotes = {
 
 export const bootstrapVueNotes = {
   text: [
-    `The <b-link href="https://bootstrap-vue.js.org" target="blank">Bootstrap-Vue</b-link> library is a great example of how to make highly reusable components. It implements Bootstrap 4 conventions and css as Vue.js components.  However, those components are not built via <code>.vue</code> files, but instead implemented in pure JS via Vue's <a href="https://vuejs.org/v2/guide/render-function.html" target="_blank">render functions</a>.`
+    `The <b-link href="https://bootstrap-vue.js.org" target="blank">Bootstrap-Vue</b-link> library is a great example of how to make highly reusable components. It implements Bootstrap 4 conventions and css as Vue.js components.  However, those components are built in pure JS via Vue's <a href="https://vuejs.org/v2/guide/render-function.html" target="_blank">render functions</a>.`
   ]
 }
 
