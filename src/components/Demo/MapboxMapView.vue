@@ -1,7 +1,7 @@
 <template>
   <div class="mapbox-container">
     <mapbox
-      access-token="pk.eyJ1IjoiZ2lzLWxpcyIsImEiOiJjam02Zmw2cDAzeGNjM3FsaTd0NmlzYTdvIn0.WCNnv0GbbVy624j8Dejs1A"
+      access-token="$root.config.mapbox_token"
       :map-options="{
         style: 'mapbox://styles/mapbox/streets-v10',
         zoom: 15,
