@@ -4,7 +4,7 @@
 
 ### Important! Create the following "config.json" file in `public` folder before attempting to run this app:
 
-```
+```json
 {
   "github_graphql_token": null,
   "mapbox_token": null,
