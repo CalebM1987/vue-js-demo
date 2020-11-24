@@ -15,7 +15,7 @@
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.2",
     "esri-loader": "^2.9.2",
-    "highlight.js": "^9.13.1",
+    "highlight.js": "^10.1.2",
     "mapbox-gl": "^1.4.0",
     "mapbox-gl-vue": "^2.0.3",
     "vue": "^2.5.21",
